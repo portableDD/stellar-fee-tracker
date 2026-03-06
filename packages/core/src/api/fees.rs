@@ -38,13 +38,18 @@ impl FeeStatsProvider for HorizonClient {
             max_fee: stats.fee_charged.max,
             avg_fee: stats.fee_charged.avg,
             percentiles: PercentileFees {
-                p10: stats.fee_charged.p10,
-                p25: stats.fee_charged.p25,
-                p50: stats.fee_charged.p50,
-                p75: stats.fee_charged.p75,
-                p90: stats.fee_charged.p90,
-                p95: stats.fee_charged.p95,
-            },
+    p10: stats.fee_charged.p10,
+    p20: stats.fee_charged.p20,
+    p30: stats.fee_charged.p30,
+    p40: stats.fee_charged.p40,
+    p50: stats.fee_charged.p50,
+    p60: stats.fee_charged.p60,
+    p70: stats.fee_charged.p70,
+    p80: stats.fee_charged.p80,
+    p90: stats.fee_charged.p90,
+    p95: stats.fee_charged.p95,
+    p99: stats.fee_charged.p99,
+},
         })
     }
 }
@@ -60,11 +65,16 @@ pub struct FeesApiState {
 #[derive(Clone, Serialize, Deserialize)]
 pub struct PercentileFees {
     pub p10: String,
-    pub p25: String,
+    pub p20: String,
+    pub p30: String,
+    pub p40: String,
     pub p50: String,
-    pub p75: String,
+    pub p60: String,
+    pub p70: String,
+    pub p80: String,
     pub p90: String,
     pub p95: String,
+    pub p99: String,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
@@ -467,14 +477,19 @@ mod tests {
             min_fee: "100".to_string(),
             max_fee: "5000".to_string(),
             avg_fee: "213".to_string(),
-            percentiles: PercentileFees {
-                p10: "100".to_string(),
-                p25: "100".to_string(),
-                p50: "150".to_string(),
-                p75: "300".to_string(),
-                p90: "500".to_string(),
-                p95: "800".to_string(),
-            },
+           percentiles: PercentileFees {
+    p10: "100".to_string(),
+    p20: "100".to_string(),
+    p30: "100".to_string(),
+    p40: "100".to_string(),
+    p50: "150".to_string(),
+    p60: "200".to_string(),
+    p70: "250".to_string(),
+    p80: "300".to_string(),
+    p90: "500".to_string(),
+    p95: "800".to_string(),
+    p99: "1000".to_string(),
+},
         }
     }
 

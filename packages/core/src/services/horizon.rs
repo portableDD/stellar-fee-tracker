@@ -63,13 +63,17 @@ pub struct FeeCharged {
     #[serde(rename = "mode")]
     pub avg: String,
     pub p10: String,
-    pub p25: String,
+    pub p20: String,
+    pub p30: String,
+    pub p40: String,
     pub p50: String,
-    pub p75: String,
+    pub p60: String,
+    pub p70: String,
+    pub p80: String,
     pub p90: String,
     pub p95: String,
+    pub p99: String,
 }
-
 
 impl HorizonClient {
     pub async fn fetch_fee_stats(&self) -> Result<HorizonFeeStats, AppError> {
