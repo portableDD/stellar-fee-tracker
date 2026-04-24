@@ -17,7 +17,7 @@ impl ScenarioRotator {
     }
 
     /// Returns the current scenario name and advances to the next.
-    pub fn next(&mut self) -> Option<&str> {
+    pub fn advance(&mut self) -> Option<&str> {
         if self.scenarios.is_empty() {
             return None;
         }
